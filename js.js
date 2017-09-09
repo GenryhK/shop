@@ -9,25 +9,47 @@ document.body.appendChild(button);
 document.body.appendChild(div);*/ // все что выше подготовленно для менюшки
 
 
-let ul = document.querySelector(`UL`);
+let ul = document.querySelector(`#ulLight`);
 ul.style.display = `none`;
 let firstUlDiv = document.querySelector(`#firstUlDiv`);
-//firstUlDiv.style.backgroundColor=`green`
-function div() {
-	ul.style.display = ``;
-	firstUlDiv.style.backgroundColor = `blue`;
-};
 
-function divOut() {
-	ul.style.display = `none`;
-	firstUlDiv.style.backgroundColor = ``
-};
-
-firstUlDiv.addEventListener(`mouseover`, div);
-firstUlDiv.addEventListener(`mouseout`, divOut);
 
 function ulOn(){ul.style.display = ``;};
 function ulOff(){ul.style.display = `none`;};
+function liClick(event){
+let self=this;
+let actionAttribute=event.target.getAttribute(`data`);
+this.forwardLight= function (){alert(`forwardLight`)};
+this.backLight= function (){alert(`forwardLight`)};
+if(actionAttribute){self[actionAttribute]()};
 
+	//console.log(event.target.getAttribute(`data`))};
+}
 ul.addEventListener(`mouseover`,ulOn);
 ul.addEventListener(`mouseout`,ulOff);
+ul.addEventListener(`click`,liClick);
+
+let form= document.querySelector(`FORM`);
+function allFormOn(event){
+	let self=this;
+	let idAttribute=event.target.getAttribute(`id`);
+	this.firstUlDiv=function(){ul.style.display = ``;
+	event.target.style.backgroundColor = `blue`}
+	this.parts= function(){event.target.style.backgroundColor=`blue`};
+	if(idAttribute){self[idAttribute]()};
+
+}
+
+function allFormOff(event){
+	let self=this;
+	let idAttribute=event.target.getAttribute(`id`);
+	this.firstUlDiv=function(){	ul.style.display = `none`;
+	event.target.style.backgroundColor = ``}
+	this.parts= function(){event.target.style.backgroundColor=``};
+	if(idAttribute){self[idAttribute]()};
+
+}
+
+form.addEventListener(`mouseover`,allFormOn)
+form.addEventListener(`mouseout`,allFormOff)
+
