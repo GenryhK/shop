@@ -29,13 +29,28 @@ ul.addEventListener(`mouseover`,ulOn);
 ul.addEventListener(`mouseout`,ulOff);
 ul.addEventListener(`click`,liClick);
 
+  let part=document.querySelector(`#part`)
+  part.style.display=`none`;
+
+function partOn(){part.style.display = ``;};
+function partOff(){part.style.display = `none`;};
+
+
+part.addEventListener(`mouseover`,partOn);
+part.addEventListener(`mouseout`,partOff);
+
+
+
+
+
 let form= document.querySelector(`FORM`);
 function allFormOn(event){
 	let self=this;
 	let idAttribute=event.target.getAttribute(`id`);
 	this.firstUlDiv=function(){ul.style.display = ``;
 	event.target.style.backgroundColor = `blue`}
-	this.parts= function(){event.target.style.backgroundColor=`blue`};
+	this.parts= function(){part.style.display=``;
+		event.target.style.backgroundColor=`blue`};
 	if(idAttribute){self[idAttribute]()};
 
 }
@@ -45,7 +60,8 @@ function allFormOff(event){
 	let idAttribute=event.target.getAttribute(`id`);
 	this.firstUlDiv=function(){	ul.style.display = `none`;
 	event.target.style.backgroundColor = ``}
-	this.parts= function(){event.target.style.backgroundColor=``};
+	this.parts= function(){part.style.display=`none`
+		event.target.style.backgroundColor=``};
 	if(idAttribute){self[idAttribute]()};
 
 }
