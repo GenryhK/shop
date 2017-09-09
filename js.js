@@ -6,16 +6,28 @@ button.textContent=`hide`;
 function hide(){(div.style.display==`none`)?div.style.display=``:div.style.display=`none`};
 button.addEventListener(`click`,hide);
 document.body.appendChild(button);
-document.body.appendChild(div);*/// все что выше подготовленно для менюшки
-let div = document.createElement(`div`);
-document.body.appendChild(div);
-div.style.position=`fixed`;
-div.style.width=300+`px`;
-div.style.height=100+`px`;
-let i = document.createElement(`img`);
-i.setAttribute(`src`,`oB.jpg`);
-i.setAttribute(`width`,`100%`);
-i.setAttribute(`height`,`100%`);
-div.appendChild(i);
+document.body.appendChild(div);*/ // все что выше подготовленно для менюшки
 
-documet.createElement(table)
+
+let ul = document.querySelector(`UL`);
+ul.style.display = `none`;
+let firstUlDiv = document.querySelector(`#firstUlDiv`);
+//firstUlDiv.style.backgroundColor=`green`
+function div() {
+	ul.style.display = ``;
+	firstUlDiv.style.backgroundColor = `blue`;
+};
+
+function divOut() {
+	ul.style.display = `none`;
+	firstUlDiv.style.backgroundColor = ``
+};
+
+firstUlDiv.addEventListener(`mouseover`, div);
+firstUlDiv.addEventListener(`mouseout`, divOut);
+
+function ulOn(){ul.style.display = ``;};
+function ulOff(){ul.style.display = `none`;};
+
+ul.addEventListener(`mouseover`,ulOn);
+ul.addEventListener(`mouseout`,ulOff);

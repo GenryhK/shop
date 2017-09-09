@@ -1,0 +1,27 @@
+#logo{
+	position: fixed;
+	width: 300px;
+	height: 100px;
+	border:3px solid black;
+border-radius:10px; 
+
+}
+#firstUlDiv{
+position: absolute;
+	margin-top : 107px;
+	margin-left :0px;
+	width: 300px;
+background-color:green;
+font-size: 30px;
+border:3px solid black;
+border-radius:10px; 
+
+}
+
+ul{position :fixed;
+margin-top : 107px;
+margin-left :307px;
+width: 200;
+border:3px solid black;
+border-radius:10px; 
+}
